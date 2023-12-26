@@ -9,13 +9,14 @@ final class OpenAI
 {
     /**
      * Creates a new Open AI Client with the given API token.
+     * public static function client(string $apiKey, ?string $organization = null, string $baseuri = 'https://api.openai.com'): Client
      */
-    public static function client(string $apiKey, ?string $organization = null, string $baseuri = 'https://api.openai.com'): Client
+    public static function client(string $apiKey, ?string $organization = null): Client
     {
         return self::factory()
             ->withApiKey($apiKey)
             ->withOrganization($organization)
-            ->withBaseUri($baseuri)
+            //->withBaseUri($baseuri)
             ->withHttpHeader('OpenAI-Beta', 'assistants=v1')
             ->make();
     }
